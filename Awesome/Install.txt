@@ -6,16 +6,18 @@ sudo apk add udev dbus
 
 sudo adduser babonet13 video    
 su babonet13
+> groups (check OK : user "babonet13" added in "video" group)
 
 echo 'awesome' >> /home/babonet13/.xinitrc
 mkdir /home/babonet13/.config
 cp -r /etc/xdg/awesome /home/babonet13/.config
 nano /home/babonet13/.config/awesome/rc.lua
-> Replace instances of xterm with lxterminal
+>>> Replace instances of xterm with lxterminal
 
 rc-update add udev
 service udev start
 rc-update add dbus
 service dbus start
+> rc-status (check OK : udev & dbus are running)
 
 starx
