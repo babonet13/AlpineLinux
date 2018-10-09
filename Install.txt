@@ -1,0 +1,21 @@
+sudo apk add awesome feh lxterminal
+sudo apk add lua
+
+sudo apk add xf86-video-nouveau
+sudo apk add udev dbus
+
+sudo adduser babonet13 video    
+su babonet13
+
+echo 'awesome' >> /home/babonet13/.xinitrc
+mkdir /home/babonet13/.config
+cp -r /etc/xdg/awesome /home/babonet13/.config
+nano /home/babonet13/.config/awesome/rc.lua
+> Replace instances of xterm with lxterminal
+
+rc-update add udev
+service udev start
+rc-update add dbus
+service dbus start
+
+starx
